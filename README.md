@@ -1,59 +1,118 @@
-# DreamerPortfolio
+# Sundara Perumal's Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+A modern, visually stunning portfolio website built with Angular, showcasing my expertise in Full Stack Development, with a focus on Angular, .NET, Kafka, and Event-Driven Architecture.
 
-## Development server
+## 🚀 Features
 
-To start a local development server, run:
+- **Modern Design**: Premium UI with glassmorphism, neumorphism, and gradient effects
+- **Dark Mode**: Seamless theme switching with smooth transitions
+- **Responsive**: Fully responsive design that works on all devices
+- **Animations**: Smooth animations and transitions using GSAP
+- **Performance**: Optimized for speed and SEO
+- **Interactive**: Dynamic components with microinteractions
+- **Accessibility**: WCAG compliant and keyboard navigable
 
-```bash
-ng serve
+## 🛠️ Tech Stack
+
+- **Framework**: Angular 17
+- **Styling**: Tailwind CSS
+- **Animations**: GSAP
+- **Icons**: Heroicons
+- **Deployment**: Vercel/Netlify/GitHub Pages
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── nav/
+│   │   ├── home/
+│   │   ├── about/
+│   │   ├── skills/
+│   │   ├── experience/
+│   │   ├── projects/
+│   │   ├── kafka-expertise/
+│   │   ├── blog/
+│   │   ├── contact/
+│   │   └── theme-toggle/
+│   ├── app.component.ts
+│   └── app.routes.ts
+├── assets/
+│   ├── icons/
+│   ├── projects/
+│   └── blog/
+└── styles.scss
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Getting Started
 
-## Code scaffolding
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/dreamer-portfolio.git
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-ng generate component component-name
-```
+3. Start the development server:
+   ```bash
+   ng serve
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+4. Open your browser and navigate to `http://localhost:4200`
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 📦 Building for Production
 
 ```bash
-ng test
+ng build --configuration production
 ```
 
-## Running end-to-end tests
+The build artifacts will be stored in the `dist/` directory.
 
-For end-to-end (e2e) testing, run:
+## 🌐 Deployment
 
+The project is configured for deployment on Vercel, Netlify, or GitHub Pages. Choose your preferred platform and follow their deployment guides.
+
+### Vercel
 ```bash
-ng e2e
+vercel
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Netlify
+```bash
+netlify deploy
+```
 
-## Additional Resources
+### GitHub Pages
+1. Update the `base` in `angular.json` to match your repository name
+2. Run:
+   ```bash
+   ng deploy --base-href=/your-repo-name/
+   ```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🎨 Customization
+
+1. **Colors**: Update the color scheme in `tailwind.config.js`
+2. **Fonts**: Change the font family in `tailwind.config.js` and update the Google Fonts link in `index.html`
+3. **Content**: Modify the content in each component under `src/app/components/`
+4. **Icons**: Add or replace icons in `src/assets/icons/`
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contact
+
+- Email: sundaraperumal132@gmail.com
+- LinkedIn: [Your LinkedIn Profile]
+- GitHub: [Your GitHub Profile]
+
+## 🙏 Acknowledgments
+
+- [Angular Team](https://angular.io)
+- [Tailwind CSS](https://tailwindcss.com)
+- [GSAP](https://greensock.com/gsap)
+- [Heroicons](https://heroicons.com)

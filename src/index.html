@@ -1,13 +1,31 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
-  <title>DreamerPortfolio</title>
+  <title>Sundara Perumal - Full Stack Developer</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sundara Perumal - Full Stack Developer specializing in Angular, .NET, Kafka, and Event-Driven Architecture">
+  <meta name="keywords" content="Sundara Perumal, Full Stack Developer, Angular, .NET, Kafka, Event-Driven Architecture, Software Engineer">
+  <meta name="author" content="Sundara Perumal">
+  <meta name="theme-color" content="#4F46E5">
+  <meta property="og:title" content="Sundara Perumal - Full Stack Developer">
+  <meta property="og:description" content="Full Stack Developer specializing in Angular, .NET, Kafka, and Event-Driven Architecture">
+  <meta property="og:type" content="website">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    // Check for saved theme preference
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
 </head>
-<body>
+<body class="antialiased font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
   <app-root></app-root>
 </body>
 </html>
