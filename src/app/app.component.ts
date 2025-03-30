@@ -1,36 +1,25 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
 import { GsapService } from './services/gsap.service';
 import { isPlatformBrowser } from '@angular/common';
-import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, NavComponent],
+  imports: [RouterOutlet, NavComponent],
   template: `
-    <div class="min-h-screen bg-white dark:bg-gray-900" [@fadeIn]>
-      <app-nav></app-nav>
-      <main>
-        <router-outlet></router-outlet>
-      </main>
-    </div>
+    <app-nav></app-nav>
+    <main class="min-h-screen pt-16">
+      <router-outlet></router-outlet>
+    </main>
   `,
   styles: [`
     :host {
       display: block;
+      min-height: 100vh;
     }
-  `],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('500ms ease-out', style({ opacity: 1 }))
-      ])
-    ])
-  ]
+  `]
 })
 export class AppComponent implements OnInit {
   constructor(
@@ -40,6 +29,13 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
+      // Handle GitHub Pages routing
+      const path = window.location.pathname;
+      if (path !== '/portfolio/' && !path.endsWith('.html')) {
+        window.history.replaceState({}, '', '/portfolio' + path);
+      }
+      
+      // Initialize GSAP animations
       await this.gsapService.initScrollAnimations();
     }
   }
