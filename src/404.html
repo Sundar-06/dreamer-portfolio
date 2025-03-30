@@ -10,37 +10,19 @@
     // Single Page Apps for GitHub Pages
     // MIT License
     // https://github.com/rafgraph/spa-github-pages
-    var pathSegmentsToKeep = 1;
-    var l = window.location;
-    var r = l.pathname.split('/').slice(1);
-    var d = r.slice(0, pathSegmentsToKeep).join('/');
-    var x = l.origin + '/' + d + '/?p=' + r.slice(pathSegmentsToKeep).join('/');
-    var s = l.search;
-    var q = l.hash;
-    var m = l.pathname.match(/\.\w+$/);
-    var y = m ? '' : 'index.html';
-    var z = l.pathname.slice(0, 1) == '/' && l.pathname.length > 1;
-    if (!(s || q) && !z && r.length - pathSegmentsToKeep - (y ? 1 : 0) != 0) {
-      window.location.replace(x + s + q);
-    }
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
   </script>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-    .loading {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f8f9fa;
-    }
-  </style>
 </head>
 <body>
-  <div class="loading">Loading...</div>
   <app-root></app-root>
 </body>
 </html> 

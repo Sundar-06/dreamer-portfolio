@@ -1,8 +1,9 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
 import { GsapService } from './services/gsap.service';
 import { isPlatformBrowser } from '@angular/common';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class AppComponent implements OnInit {
   constructor(
     private gsapService: GsapService,
+    private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
@@ -32,10 +34,19 @@ export class AppComponent implements OnInit {
       // Handle GitHub Pages routing
       const path = window.location.pathname;
       if (path !== '/portfolio/' && !path.endsWith('.html')) {
-        window.history.replaceState({}, '', '/portfolio' + path);
+        const newPath = '/portfolio' + path;
+        window.history.replaceState({}, '', newPath);
       }
+
+      // Subscribe to router events to handle navigation
+      this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd)
+      ).subscribe(() => {
+        // Initialize GSAP animations after navigation
+        this.gsapService.initScrollAnimations();
+      });
       
-      // Initialize GSAP animations
+      // Initial GSAP animations
       await this.gsapService.initScrollAnimations();
     }
   }
